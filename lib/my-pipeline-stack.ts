@@ -23,13 +23,21 @@ import { AmplifyStage } from './amplify-stage';
          commands: [
            'npm ci',
            'npm run build',
-           'npx cdk synth'
+           'npx cdk synth',
          ],
        }),
     });
 
     // This is where we add the application stages
-    pipeline.addStage(new AmplifyStage(this, "amplifyStage"))
+    const amplifyApp = new AmplifyStage(this, "amplifyStage")
+    const amplifyStage = pipeline.addStage(amplifyApp)
+    amplifyStage.addPost(new ShellStep("AmplifyExportPull", {
+      commands: [
+        'npm i -g @aws-amplify/cli',
+        `amplify export pull --rootStackName ${amplifyApp.rootStackName} --out ./`,
+        'cat aws-exports.js'
+      ]
+    }))
     pipeline.addStage(new OtherApiStage(this, "otherApiStage"))
   }
 }

@@ -7,6 +7,7 @@ import * as cdk from '@aws-cdk/core'
  * Deployable unit of web service app
  */
 export class AmplifyStage extends Stage {
+  public readonly rootStackName: string
   
   constructor(scope: Construct, id: string, props?: StageProps) {
     super(scope, id, props);
@@ -15,5 +16,7 @@ export class AmplifyStage extends Stage {
       amplifyEnvironment: "dev",
       path: path.resolve(__dirname, 'amplify-export-amplifiedshopping')
     })
+
+    this.rootStackName = amplifyStack.rootStack.stackName
   }
 }
