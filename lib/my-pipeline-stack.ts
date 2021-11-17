@@ -10,7 +10,7 @@ import { CodePipeline, CodePipelineSource, ShellStep } from "@aws-cdk/pipelines"
 
     const pipeline = new CodePipeline(this, 'Pipeline', {
       // The pipeline name
-      pipelineName: 'MyServicePipeline',
+      pipelineName: 'MyCdkPipeline',
 
        // How it will be built and synthesized
        synth: new ShellStep('Synth', {

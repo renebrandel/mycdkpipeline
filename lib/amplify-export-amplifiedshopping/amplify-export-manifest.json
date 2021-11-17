@@ -1,0 +1,38 @@
+{
+  "stackName": "amplify-amplifiedshopping-dev-74227",
+  "props": {
+    "templateFile": "root-stack-template.json",
+    "parameters": {
+      "AuthRoleName": "amplify-amplifiedshopping-dev-74227-authRole",
+      "UnauthRoleName": "amplify-amplifiedshopping-dev-74227-unauthRole",
+      "DeploymentBucketName": "amplify-amplifiedshopping-dev-74227-deployment"
+    },
+    "preserveLogicalIds": true,
+    "loadNestedStacks": {
+      "apiamplifiedshopping": {
+        "templateFile": "api/amplifiedshopping/cloudformation-template.json",
+        "parameters": {
+          "AppSyncApiName": "amplifiedshopping",
+          "DynamoDBBillingMode": "PAY_PER_REQUEST",
+          "DynamoDBEnableServerSideEncryption": false,
+          "S3DeploymentBucket": "amplify-amplifiedshopping-dev-74227-deployment",
+          "S3DeploymentRootKey": "amplify-appsync-files/f8cacc9a1c025fdf0e42f9c825d5ac7f094e7a32",
+          "env": "dev"
+        },
+        "preserveLogicalIds": true,
+        "loadNestedStacks": {
+          "CustomResourcesjson": {
+            "templateFile": "api/amplifiedshopping/amplify-appsync-files/stacks/CustomResources.json",
+            "preserveLogicalIds": true,
+            "loadNestedStacks": {}
+          },
+          "Todo": {
+            "templateFile": "api/amplifiedshopping/amplify-appsync-files/stacks/Todo.json",
+            "preserveLogicalIds": true,
+            "loadNestedStacks": {}
+          }
+        }
+      }
+    }
+  }
+}

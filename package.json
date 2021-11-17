@@ -21,6 +21,7 @@
     "typescript": "~3.9.7"
   },
   "dependencies": {
+    "@aws-amplify/cdk-exported-backend": "^0.0.4",
     "@aws-cdk/aws-apigateway": "^1.132.0",
     "@aws-cdk/aws-lambda": "^1.132.0",
     "@aws-cdk/core": "1.130.0",
