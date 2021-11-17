@@ -1,13 +1,12 @@
-import { CfnOutput, Construct, Stage, StageProps } from '@aws-cdk/core';
+import { CfnOutput, cfnTagToCloudFormation, Construct, Stage, StageProps } from '@aws-cdk/core';
 import { AmplifyExportedBackend } from '@aws-amplify/cdk-exported-backend'
 import * as path from 'path'
+import * as cdk from '@aws-cdk/core'
 
 /**
  * Deployable unit of web service app
  */
 export class AmplifyStage extends Stage {
-
-  public readonly apiKey: CfnOutput
   
   constructor(scope: Construct, id: string, props?: StageProps) {
     super(scope, id, props);
@@ -17,7 +16,7 @@ export class AmplifyStage extends Stage {
       path: path.resolve(__dirname, 'amplify-export-amplifiedshopping')
     })
 
-    this.apiKey = new CfnOutput(this, "ApiKey", {
+    new CfnOutput(amplifyStack.rootStack, "appSyncApiKey123", {
       value: amplifyStack.graphqlNestedStacks().appSyncAPIKey().attrApiKey
     })
   }
