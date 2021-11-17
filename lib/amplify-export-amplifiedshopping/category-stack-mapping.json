@@ -3,5 +3,10 @@
     "category": "api",
     "resourceName": "amplifiedshopping",
     "service": "AppSync"
+  },
+  {
+    "category": "custom",
+    "resourceName": "customResource24e4407e",
+    "service": "customCDK"
   }
 ]

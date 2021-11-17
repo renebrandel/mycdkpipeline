@@ -148,6 +148,12 @@
       "Properties": {
         "Parameters": {}
       }
+    },
+    "customcustomResource24e4407e": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "Parameters": {}
+      }
     }
   }
 }

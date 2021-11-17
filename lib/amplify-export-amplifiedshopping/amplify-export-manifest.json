@@ -32,6 +32,14 @@
             "loadNestedStacks": {}
           }
         }
+      },
+      "customcustomResource24e4407e": {
+        "templateFile": "custom/customResource24e4407e/customResource24e4407e-cloudformation-template.json",
+        "parameters": {
+          "env": "dev"
+        },
+        "preserveLogicalIds": true,
+        "loadNestedStacks": {}
       }
     }
   }
