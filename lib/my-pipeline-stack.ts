@@ -1,5 +1,7 @@
 import { Construct, SecretValue, Stack, StackProps } from '@aws-cdk/core';
 import { CodePipeline, CodePipelineSource, ShellStep } from "@aws-cdk/pipelines";
+import { OtherApiStage } from './other-api-stage';
+import { AmplifyStage } from './amplify-stage';
 
 /**
  * The stack that defines the application pipeline
@@ -27,6 +29,7 @@ import { CodePipeline, CodePipelineSource, ShellStep } from "@aws-cdk/pipelines"
     });
 
     // This is where we add the application stages
-    // ...
+    pipeline.addStage(new AmplifyStage(this, "amplifyStage"))
+    pipeline.addStage(new OtherApiStage(this, "otherApiStage"))
   }
 }
