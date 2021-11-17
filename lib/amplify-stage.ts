@@ -15,9 +15,5 @@ export class AmplifyStage extends Stage {
       amplifyEnvironment: "dev",
       path: path.resolve(__dirname, 'amplify-export-amplifiedshopping')
     })
-
-    new CfnOutput(amplifyStack.rootStack, "appSyncApiKey123", {
-      value: amplifyStack.graphqlNestedStacks().appSyncAPIKey().attrApiKey
-    })
   }
 }
