@@ -24,7 +24,6 @@ import { AmplifyStage } from './stages/amplify-stage';
            'npm ci',
            'npm run build',
            'npx cdk synth',
-           'npm i -g @aws-amplify/cli'
          ],
        }),
     });
