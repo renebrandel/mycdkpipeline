@@ -12,14 +12,12 @@ export class AmplifyStage extends Stage {
     // ADD AMPLIFY EXPORTED BACKEND STACK HERE
     const amplifyStack = new AmplifyExportedBackend(this, "amplifyexportedbackend", {
       path: path.resolve(__dirname, '..', 'amplify-export-mytodoapp'),
-      amplifyEnvironment: "dev"
+      amplifyEnvironment: cdk.Stack.of(this).region + cdk.Stack.of(this).account
     })
 
     const amplifyMichaelStack = new AmplifyExportedBackend(this, "amplifymichaelbackend", {
       path: path.resolve(__dirname, '..', 'amplify-export-lightshow'),
       amplifyEnvironment: "prod"
     })
-
-    const deploymentBucket = amplifyMichaelStack.cfnInclude.getResource("DeploymentBucket") as CfnBucket
   }
 }
