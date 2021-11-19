@@ -8,16 +8,12 @@ export class AmplifyStage extends Stage {
   
   constructor(scope: Construct, id: string, props?: StageProps) {
     super(scope, id, props);
+
     
     // ADD AMPLIFY EXPORTED BACKEND STACK HERE
     const amplifyStack = new AmplifyExportedBackend(this, "amplifyexportedbackend", {
       path: path.resolve(__dirname, '..', 'amplify-export-mytodoapp'),
-      amplifyEnvironment: cdk.Stack.of(this).region + cdk.Stack.of(this).account
-    })
-
-    const amplifyMichaelStack = new AmplifyExportedBackend(this, "amplifymichaelbackend", {
-      path: path.resolve(__dirname, '..', 'amplify-export-lightshow'),
-      amplifyEnvironment: "prod"
+      amplifyEnvironment: "dev"
     })
   }
 }
