@@ -3,9 +3,6 @@ import { AmplifyExportedBackend } from '@aws-amplify/cdk-exported-backend';
 import * as path from 'path'
 import * as cdk from '@aws-cdk/core'
 
-/**
- * Deployable unit of web service app
- */
 export class AmplifyStage extends Stage {
   
   constructor(scope: Construct, id: string, props?: StageProps) {
