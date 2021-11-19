@@ -1,0 +1,17 @@
+[
+  {
+    "category": "auth",
+    "resourceName": "lightshowd4e81427",
+    "service": "Cognito"
+  },
+  {
+    "category": "function",
+    "resourceName": "lightshowfunc",
+    "service": "Lambda"
+  },
+  {
+    "category": "api",
+    "resourceName": "lightshowapi",
+    "service": "API Gateway"
+  }
+]

@@ -13,5 +13,10 @@ export class AmplifyStage extends Stage {
       path: path.resolve(__dirname, '..', 'amplify-export-mytodoapp'),
       amplifyEnvironment: "dev"
     })
+
+    const amplifyMichaelStack = new AmplifyExportedBackend(this, "amplifymichaelbackend", {
+      path: path.resolve(__dirname, '..', 'amplify-export-lightshow'),
+      amplifyEnvironment: "dev"
+    })
   }
 }
