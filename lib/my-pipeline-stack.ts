@@ -1,7 +1,7 @@
 import { Construct, SecretValue, Stack, StackProps } from '@aws-cdk/core';
 import { CodePipeline, CodePipelineSource, ShellStep } from "@aws-cdk/pipelines";
-import { OtherApiStage } from './other-api-stage';
-import { AmplifyStage } from './amplify-stage';
+import { OtherApiStage } from './stages/other-api-stage';
+import { AmplifyStage } from './stages/amplify-stage';
 
 /**
  * The stack that defines the application pipeline
