@@ -17,7 +17,7 @@ import { AmplifyStage } from './stages/amplify-stage';
        // How it will be built and synthesized
        synth: new ShellStep('Synth', {
          // Where the source can be found
-         input: CodePipelineSource.gitHub('renebrandel/newexport', 'main'),
+         input: CodePipelineSource.gitHub('<YOUR_GITHUB_USERNAME>/mycdkpipeline', 'main'),
          
          // Install dependencies, build and run cdk synth
          commands: [
