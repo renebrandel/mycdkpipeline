@@ -1,0 +1,96 @@
+{
+  "stackName": "amplify-demosession-dev-72107",
+  "props": {
+    "templateFile": "root-stack-template.json",
+    "parameters": {
+      "AuthRoleName": "amplify-demosession-dev-72107-authRole",
+      "UnauthRoleName": "amplify-demosession-dev-72107-unauthRole",
+      "DeploymentBucketName": "amplify-demosession-dev-72107-deployment"
+    },
+    "preserveLogicalIds": true,
+    "loadNestedStacks": {
+      "apidemosession": {
+        "templateFile": "api/demosession/cloudformation-template.json",
+        "parameters": {
+          "AppSyncApiName": "demosession",
+          "DynamoDBBillingMode": "PAY_PER_REQUEST",
+          "DynamoDBEnableServerSideEncryption": false,
+          "S3DeploymentBucket": "amplify-demosession-dev-72107-deployment",
+          "S3DeploymentRootKey": "amplify-appsync-files/e40dbfdb87b13f3d9fe777ee217f2dd53a038dd9",
+          "env": "dev"
+        },
+        "preserveLogicalIds": true,
+        "loadNestedStacks": {
+          "CustomResourcesjson": {
+            "templateFile": "api/demosession/amplify-appsync-files/stacks/CustomResources.json",
+            "preserveLogicalIds": true,
+            "loadNestedStacks": {}
+          },
+          "Todo": {
+            "templateFile": "api/demosession/amplify-appsync-files/stacks/Todo.json",
+            "preserveLogicalIds": true,
+            "loadNestedStacks": {}
+          }
+        }
+      },
+      "authdemosession65c02343": {
+        "templateFile": "auth/demosession65c02343/demosession65c02343-cloudformation-template.json",
+        "parameters": {
+          "identityPoolName": "demosession65c02343_identitypool_65c02343",
+          "allowUnauthenticatedIdentities": false,
+          "resourceNameTruncated": "demose65c02343",
+          "userPoolName": "demosession65c02343_userpool_65c02343",
+          "autoVerifiedAttributes": [
+            "email"
+          ],
+          "mfaConfiguration": "OFF",
+          "mfaTypes": [
+            "SMS Text Message"
+          ],
+          "smsAuthenticationMessage": "Your authentication code is {####}",
+          "smsVerificationMessage": "Your verification code is {####}",
+          "emailVerificationSubject": "Your verification code",
+          "emailVerificationMessage": "Your verification code is {####}",
+          "defaultPasswordPolicy": false,
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": [],
+          "requiredAttributes": [
+            "email"
+          ],
+          "aliasAttributes": [],
+          "userpoolClientGenerateSecret": false,
+          "userpoolClientRefreshTokenValidity": 30,
+          "userpoolClientWriteAttributes": [
+            "email"
+          ],
+          "userpoolClientReadAttributes": [
+            "email"
+          ],
+          "userpoolClientLambdaRole": "demose65c02343_userpoolclient_lambda_role",
+          "userpoolClientSetAttributes": false,
+          "sharedId": "65c02343",
+          "resourceName": "demosession65c02343",
+          "authSelections": "identityPoolAndUserPool",
+          "useDefault": "default",
+          "userPoolGroupList": [],
+          "serviceName": "Cognito",
+          "usernameCaseSensitive": false,
+          "useEnabledMfas": true,
+          "breakCircularDependency": true,
+          "dependsOn": [],
+          "env": "dev"
+        },
+        "preserveLogicalIds": true,
+        "loadNestedStacks": {}
+      },
+      "custommysnstopic": {
+        "templateFile": "custom/mysnstopic/mysnstopic-cloudformation-template.json",
+        "parameters": {
+          "env": "dev"
+        },
+        "preserveLogicalIds": true,
+        "loadNestedStacks": {}
+      }
+    }
+  }
+}

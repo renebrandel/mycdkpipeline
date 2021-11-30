@@ -1,0 +1,50 @@
+{
+  "Parameters": {
+    "env": {
+      "Type": "String",
+      "Description": "Current Amplify CLI env name"
+    },
+    "authdemosession65c02343IdentityPoolId": {
+      "Type": "String"
+    },
+    "authdemosession65c02343IdentityPoolName": {
+      "Type": "String"
+    },
+    "authdemosession65c02343UserPoolId": {
+      "Type": "String"
+    },
+    "authdemosession65c02343UserPoolArn": {
+      "Type": "String"
+    },
+    "authdemosession65c02343UserPoolName": {
+      "Type": "String"
+    },
+    "authdemosession65c02343AppClientIDWeb": {
+      "Type": "String"
+    },
+    "authdemosession65c02343AppClientID": {
+      "Type": "String"
+    }
+  },
+  "Resources": {
+    "sqsqueueE70CFDBB": {
+      "Type": "AWS::SQS::Queue",
+      "Properties": {
+        "QueueName": {
+          "Fn::Join": [
+            "",
+            [
+              "sqs-queue-demosession-",
+              {
+                "Ref": "env"
+              }
+            ]
+          ]
+        }
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete"
+    }
+  },
+  "Description": "{\"createdOn\":\"Mac\",\"createdBy\":\"Amplify\",\"createdWith\":\"7.5.4\",\"stackType\":\"custom-customCDK\",\"metadata\":{}}"
+}
