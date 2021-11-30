@@ -152,13 +152,13 @@
         }
       }
     },
-    "apidemosession": {
+    "apireinvent": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
         "Parameters": {}
       }
     },
-    "authdemosession65c02343": {
+    "authreinventd01aa42e": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
         "Parameters": {
@@ -177,49 +177,49 @@
         }
       }
     },
-    "custommysnstopic": {
+    "customsqsqueue": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
         "Parameters": {
-          "authdemosession65c02343IdentityPoolId": {
+          "authreinventd01aa42eIdentityPoolId": {
             "Fn::GetAtt": [
-              "authdemosession65c02343",
+              "authreinventd01aa42e",
               "Outputs.IdentityPoolId"
             ]
           },
-          "authdemosession65c02343IdentityPoolName": {
+          "authreinventd01aa42eIdentityPoolName": {
             "Fn::GetAtt": [
-              "authdemosession65c02343",
+              "authreinventd01aa42e",
               "Outputs.IdentityPoolName"
             ]
           },
-          "authdemosession65c02343UserPoolId": {
+          "authreinventd01aa42eUserPoolId": {
             "Fn::GetAtt": [
-              "authdemosession65c02343",
+              "authreinventd01aa42e",
               "Outputs.UserPoolId"
             ]
           },
-          "authdemosession65c02343UserPoolArn": {
+          "authreinventd01aa42eUserPoolArn": {
             "Fn::GetAtt": [
-              "authdemosession65c02343",
+              "authreinventd01aa42e",
               "Outputs.UserPoolArn"
             ]
           },
-          "authdemosession65c02343UserPoolName": {
+          "authreinventd01aa42eUserPoolName": {
             "Fn::GetAtt": [
-              "authdemosession65c02343",
+              "authreinventd01aa42e",
               "Outputs.UserPoolName"
             ]
           },
-          "authdemosession65c02343AppClientIDWeb": {
+          "authreinventd01aa42eAppClientIDWeb": {
             "Fn::GetAtt": [
-              "authdemosession65c02343",
+              "authreinventd01aa42e",
               "Outputs.AppClientIDWeb"
             ]
           },
-          "authdemosession65c02343AppClientID": {
+          "authreinventd01aa42eAppClientID": {
             "Fn::GetAtt": [
-              "authdemosession65c02343",
+              "authreinventd01aa42e",
               "Outputs.AppClientID"
             ]
           }
@@ -230,7 +230,7 @@
       "DependsOn": [
         "AuthRole",
         "UnauthRole",
-        "authdemosession65c02343"
+        "authreinventd01aa42e"
       ],
       "Type": "AWS::Lambda::Function",
       "Properties": {
@@ -325,7 +325,7 @@
         },
         "idpId": {
           "Fn::GetAtt": [
-            "authdemosession65c02343",
+            "authreinventd01aa42e",
             "Outputs.IdentityPoolId"
           ]
         },

@@ -1,17 +1,17 @@
 [
   {
     "category": "api",
-    "resourceName": "demosession",
+    "resourceName": "reinvent",
     "service": "AppSync"
   },
   {
     "category": "auth",
-    "resourceName": "demosession65c02343",
+    "resourceName": "reinventd01aa42e",
     "service": "Cognito"
   },
   {
     "category": "custom",
-    "resourceName": "mysnstopic",
+    "resourceName": "sqsqueue",
     "service": "customCDK"
   }
 ]

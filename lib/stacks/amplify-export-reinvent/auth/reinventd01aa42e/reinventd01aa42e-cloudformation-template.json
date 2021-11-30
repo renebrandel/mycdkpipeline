@@ -194,7 +194,7 @@
         "UserPoolId": {
           "Ref": "UserPool"
         },
-        "ClientName": "demose65c02343_app_clientWeb",
+        "ClientName": "reinved01aa42e_app_clientWeb",
         "RefreshTokenValidity": {
           "Ref": "userpoolClientRefreshTokenValidity"
         }
@@ -209,7 +209,7 @@
         "UserPoolId": {
           "Ref": "UserPool"
         },
-        "ClientName": "demose65c02343_app_client",
+        "ClientName": "reinved01aa42e_app_client",
         "GenerateSecret": {
           "Ref": "userpoolClientGenerateSecret"
         },
@@ -246,7 +246,7 @@
               "Fn::Join": [
                 "",
                 [
-                  "upClientLambdaRole65c02343",
+                  "upClientLambdaRoled01aa42e",
                   {
                     "Fn::Select": [
                       3,
@@ -314,7 +314,7 @@
             }
           ]
         },
-        "PolicyName": "demose65c02343_userpoolclient_lambda_iam_policy",
+        "PolicyName": "reinved01aa42e_userpoolclient_lambda_iam_policy",
         "Roles": [
           {
             "Ref": "UserPoolClientRole"
@@ -357,7 +357,7 @@
             }
           ]
         },
-        "PolicyName": "demose65c02343_userpoolclient_lambda_log_policy",
+        "PolicyName": "reinved01aa42e_userpoolclient_lambda_log_policy",
         "Roles": [
           {
             "Ref": "UserPoolClientRole"
@@ -437,12 +437,12 @@
         "IdentityPoolName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "demosession65c02343_identitypool_65c02343",
+            "reinventd01aa42e_identitypool_d01aa42e",
             {
               "Fn::Join": [
                 "",
                 [
-                  "demosession65c02343_identitypool_65c02343__",
+                  "reinventd01aa42e_identitypool_d01aa42e__",
                   {
                     "Ref": "env"
                   }

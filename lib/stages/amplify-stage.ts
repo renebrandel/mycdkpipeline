@@ -11,8 +11,8 @@ export class AmplifyStage extends Stage {
 
     // ADD AMPLIFY EXPORTED BACKEND STACK HERE
     const amplifyStack = new AmplifyExportedBackend(this, "amplify-stack", {
-      path: path.resolve(__dirname, "..", "stacks", "amplify-export-demosession"),
-      amplifyEnvironment: "dev"
+      path: path.resolve(__dirname, '..', 'stacks', 'amplify-export-reinvent'),
+      amplifyEnvironment: "prod"
     })
   }
 }
