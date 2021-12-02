@@ -10,9 +10,5 @@ export class AmplifyStage extends Stage {
     super(scope, id, props);
 
     // ADD AMPLIFY EXPORTED BACKEND STACK HERE
-    const amplifyStack = new AmplifyExportedBackend(this, "amplify-stack", {
-      path: path.resolve(__dirname, '..', 'stacks', 'amplify-export-reinvent'),
-      amplifyEnvironment: "prod"
-    })
   }
 }
