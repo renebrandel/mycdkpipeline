@@ -1,0 +1,103 @@
+{
+  "Parameters": {
+    "env": {
+      "Type": "String",
+      "Description": "Current Amplify CLI env name"
+    }
+  },
+  "Resources": {
+    "sqsqueueE70CFDBB": {
+      "Type": "AWS::SQS::Queue",
+      "Properties": {
+        "QueueName": {
+          "Fn::Join": [
+            "",
+            [
+              "sqs-queue-amplifyhomes-",
+              {
+                "Ref": "env"
+              }
+            ]
+          ]
+        }
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete"
+    },
+    "sqsqueuePolicyC27BD6E4": {
+      "Type": "AWS::SQS::QueuePolicy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sqs:SendMessage",
+              "Condition": {
+                "ArnEquals": {
+                  "aws:SourceArn": {
+                    "Ref": "snstopic2C4AE3C1"
+                  }
+                }
+              },
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "sns.amazonaws.com"
+              },
+              "Resource": {
+                "Fn::GetAtt": [
+                  "sqsqueueE70CFDBB",
+                  "Arn"
+                ]
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "Queues": [
+          {
+            "Ref": "sqsqueueE70CFDBB"
+          }
+        ]
+      }
+    },
+    "sqsqueuesnstopic5956E741": {
+      "Type": "AWS::SNS::Subscription",
+      "Properties": {
+        "Protocol": "sqs",
+        "TopicArn": {
+          "Ref": "snstopic2C4AE3C1"
+        },
+        "Endpoint": {
+          "Fn::GetAtt": [
+            "sqsqueueE70CFDBB",
+            "Arn"
+          ]
+        }
+      }
+    },
+    "snstopic2C4AE3C1": {
+      "Type": "AWS::SNS::Topic",
+      "Properties": {
+        "TopicName": {
+          "Fn::Join": [
+            "",
+            [
+              "sns-topic-amplifyhomes-",
+              {
+                "Ref": "env"
+              }
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "snsTopicArn": {
+      "Description": "The arn of the SNS topic",
+      "Value": {
+        "Ref": "snstopic2C4AE3C1"
+      }
+    }
+  },
+  "Description": "{\"createdOn\":\"Mac\",\"createdBy\":\"Amplify\",\"createdWith\":\"7.7.0-amplify-cli-fe-uibuilder-6.0\",\"stackType\":\"custom-customCDK\",\"metadata\":{}}"
+}
