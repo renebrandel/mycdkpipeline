@@ -1,0 +1,17 @@
+[
+  {
+    "category": "api",
+    "resourceName": "tfc",
+    "service": "AppSync"
+  },
+  {
+    "category": "auth",
+    "resourceName": "tfcd3c1d1d0",
+    "service": "Cognito"
+  },
+  {
+    "category": "custom",
+    "resourceName": "mysqsqueuefortfc",
+    "service": "customCDK"
+  }
+]

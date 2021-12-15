@@ -1,0 +1,96 @@
+{
+  "stackName": "amplify-tfc-dev-74508",
+  "props": {
+    "templateFile": "root-stack-template.json",
+    "parameters": {
+      "AuthRoleName": "amplify-tfc-dev-74508-authRole",
+      "UnauthRoleName": "amplify-tfc-dev-74508-unauthRole",
+      "DeploymentBucketName": "amplify-tfc-dev-74508-deployment"
+    },
+    "preserveLogicalIds": true,
+    "loadNestedStacks": {
+      "apitfc": {
+        "templateFile": "api/tfc/cloudformation-template.json",
+        "parameters": {
+          "AppSyncApiName": "tfc",
+          "DynamoDBBillingMode": "PAY_PER_REQUEST",
+          "DynamoDBEnableServerSideEncryption": false,
+          "S3DeploymentBucket": "amplify-tfc-dev-74508-deployment",
+          "S3DeploymentRootKey": "amplify-appsync-files/f627d9a683811cde93535da2a415e7934df5c3ae",
+          "env": "dev"
+        },
+        "preserveLogicalIds": true,
+        "loadNestedStacks": {
+          "CustomResourcesjson": {
+            "templateFile": "api/tfc/amplify-appsync-files/stacks/CustomResources.json",
+            "preserveLogicalIds": true,
+            "loadNestedStacks": {}
+          },
+          "Todo": {
+            "templateFile": "api/tfc/amplify-appsync-files/stacks/Todo.json",
+            "preserveLogicalIds": true,
+            "loadNestedStacks": {}
+          }
+        }
+      },
+      "authtfcd3c1d1d0": {
+        "templateFile": "auth/tfcd3c1d1d0/tfcd3c1d1d0-cloudformation-template.json",
+        "parameters": {
+          "identityPoolName": "tfcd3c1d1d0_identitypool_d3c1d1d0",
+          "allowUnauthenticatedIdentities": false,
+          "resourceNameTruncated": "tfcd3c1d1d0",
+          "userPoolName": "tfcd3c1d1d0_userpool_d3c1d1d0",
+          "autoVerifiedAttributes": [
+            "email"
+          ],
+          "mfaConfiguration": "OFF",
+          "mfaTypes": [
+            "SMS Text Message"
+          ],
+          "smsAuthenticationMessage": "Your authentication code is {####}",
+          "smsVerificationMessage": "Your verification code is {####}",
+          "emailVerificationSubject": "Your verification code",
+          "emailVerificationMessage": "Your verification code is {####}",
+          "defaultPasswordPolicy": false,
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": [],
+          "requiredAttributes": [
+            "email"
+          ],
+          "aliasAttributes": [],
+          "userpoolClientGenerateSecret": false,
+          "userpoolClientRefreshTokenValidity": 30,
+          "userpoolClientWriteAttributes": [
+            "email"
+          ],
+          "userpoolClientReadAttributes": [
+            "email"
+          ],
+          "userpoolClientLambdaRole": "tfcd3cd3c1d1d0_userpoolclient_lambda_role",
+          "userpoolClientSetAttributes": false,
+          "sharedId": "d3c1d1d0",
+          "resourceName": "tfcd3c1d1d0",
+          "authSelections": "identityPoolAndUserPool",
+          "useDefault": "default",
+          "userPoolGroupList": [],
+          "serviceName": "Cognito",
+          "usernameCaseSensitive": false,
+          "useEnabledMfas": true,
+          "breakCircularDependency": true,
+          "dependsOn": [],
+          "env": "dev"
+        },
+        "preserveLogicalIds": true,
+        "loadNestedStacks": {}
+      },
+      "custommysqsqueuefortfc": {
+        "templateFile": "custom/mysqsqueuefortfc/mysqsqueuefortfc-cloudformation-template.json",
+        "parameters": {
+          "env": "dev"
+        },
+        "preserveLogicalIds": true,
+        "loadNestedStacks": {}
+      }
+    }
+  }
+}
