@@ -11,7 +11,7 @@ export class AmplifyStage extends Stage {
     
     // ADD AMPLIFY EXPORTED BACKEND STACK HERE
     const amplifyStack = new AmplifyExportedBackend(this, "amplifyexportedbackend", {
-      path: path.resolve('lib', '..', 'amplify-export-caserep'),
+      path: path.resolve('../../../lib/amplify-export-caserep'),
       amplifyEnvironment: "dev"
     })
   }
