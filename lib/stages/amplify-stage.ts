@@ -9,5 +9,9 @@ export class AmplifyStage extends Stage {
     super(scope, id, props);
     
     // ADD AMPLIFY EXPORTED BACKEND STACK HERE
+    const amplifyStack = new AmplifyExportedBackend(this, "amplifyexportedbackend", {
+      path: path.resolve('lib', '..', 'amplify-export-mytodoapp'),
+      amplifyEnvironment: "dev"
+    })
   }
 }
